@@ -19,6 +19,9 @@ namespace Aula1AspNetMVC.Controllers
                 CreatedDate = DateTime.Now
             };
 
+            ViewBag.Client = client;
+            ViewData["Client"] = client;
+
             return View("Index", client);
         }
 
