@@ -33,7 +33,7 @@ namespace Aula1AspNetMVC.Controllers
             return View(clientList);
         }
 
-        public ActionResult Search(int id)
+        public ActionResult Search(int? id, string name)
         {
             var clientList = new List<Client>()
             {
@@ -44,7 +44,7 @@ namespace Aula1AspNetMVC.Controllers
             };
 
             /* Aqui estamos realizando uma busca de clientes pelo Nome através do 'Id' */
-            var client = clientList.Where(c => c.Id == id).ToList();
+            var client = clientList.Where(c => c.Name == name).ToList();
 
             return View("List", client);
         }
