@@ -11,3 +11,13 @@
     <li>@Html.DisplayFor(m => client.Name) @Html.DisplayFor(m => client.Surname)</li>
 }
 
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            $("li").click(function() {
+                $(this).hide();
+            });
+        });
+    </script>
+}
+

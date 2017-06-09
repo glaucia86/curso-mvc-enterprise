@@ -16,7 +16,7 @@ namespace Aula1AspNetMVC
 
             routes.MapRoute(
                 name: "Second",
-                url: "{controller}/{action}/{id}/{name}",
+                url: "Admin/{controller}/Management/{action}/{id}/{name}",
                 defaults: new
                 {
                     controller = "Home",
