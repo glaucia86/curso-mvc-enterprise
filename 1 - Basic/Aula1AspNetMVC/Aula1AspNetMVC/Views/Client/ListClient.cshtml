@@ -1,0 +1,13 @@
+﻿@model List<Aula1AspNetMVC.Models.Client>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+@foreach (var client in Model)
+{
+    <li>@Html.DisplayFor(m => client.Name) @Html.DisplayFor(m => client.Surname)</li>
+}
+
