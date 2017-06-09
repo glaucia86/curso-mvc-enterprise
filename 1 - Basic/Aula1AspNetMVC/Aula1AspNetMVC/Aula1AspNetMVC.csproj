@@ -198,7 +198,7 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Shared\_Saudacao.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
-    <Content Include="Views\Client\ListClient.cshtml" />
+    <Content Include="Views\Client\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

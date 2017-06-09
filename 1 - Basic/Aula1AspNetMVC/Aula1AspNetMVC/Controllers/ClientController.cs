@@ -22,7 +22,7 @@ namespace Aula1AspNetMVC.Controllers
             return View("Index", client);
         }
 
-        public ActionResult ListClient()
+        public ActionResult List()
         {
             var clientList = new List<Client>()
             {
@@ -33,7 +33,7 @@ namespace Aula1AspNetMVC.Controllers
             return View(clientList);
         }
 
-        public ActionResult SearchClient(string id)
+        public ActionResult Search(string id)
         {
             var clientList = new List<Client>()
             {
