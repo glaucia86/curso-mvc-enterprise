@@ -49,7 +49,18 @@ namespace Aula1AspNetMVC.Controllers
             /* Aqui estamos realizando uma busca de clientes pelo Nome através do 'Id' */
             var client = clientList.Where(c => c.Name == name).ToList();
 
+            if (!client.Any())
+            {
+                TempData["error"] = "No client selected.";
+                return RedirectToAction("SearchError");
+            }
+
             return View("List", client);
+        }
+
+        public ActionResult SearchError()
+        {
+            return View("Error");
         }
     }
 }
