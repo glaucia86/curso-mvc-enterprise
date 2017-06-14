@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Aula1AspNetMVC.Models;
 
 namespace Aula1AspNetMVC.Context
 {
@@ -9,5 +10,8 @@ namespace Aula1AspNetMVC.Context
         {
             
         }
+
+        // Referência da Classe Client (contida no Models) para podermos trabalhar com o EF
+        public DbSet<Client> Clients { get; set; }
     }
 }
