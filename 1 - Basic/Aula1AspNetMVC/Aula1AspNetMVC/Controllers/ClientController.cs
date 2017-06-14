@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Aula1AspNetMVC.Context;
 using Aula1AspNetMVC.Models;
 
 namespace Aula1AspNetMVC.Controllers
@@ -11,16 +12,11 @@ namespace Aula1AspNetMVC.Controllers
         // GET: Client
         public ActionResult Test()
         {
-            var client = new Client()
-            {
-                Id = 1,
-                Name = "Glaucia",
-                Surname = "Lemos",
-                CreatedDate = DateTime.Now
-            };
+            var client = new Aula1Context().Client.SingleOrDefault(c => c.Id == 1);
+            
 
             ViewBag.Client = client;
-            ViewData["Client"] = client;
+            //ViewData["Client"] = client;
 
             return View("Index", client);
         }

@@ -12,6 +12,6 @@ namespace Aula1AspNetMVC.Context
         }
 
         // Referência da Classe Client (contida no Models) para podermos trabalhar com o EF
-        public DbSet<Client> Clients { get; set; }
+        public DbSet<Client> Client { get; set; }
     }
 }
