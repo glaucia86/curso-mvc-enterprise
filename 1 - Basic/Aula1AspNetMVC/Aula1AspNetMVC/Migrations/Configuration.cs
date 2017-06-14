@@ -9,7 +9,7 @@ namespace Aula1AspNetMVC.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Aula1AspNetMVC.Context.Aula1Context context)
