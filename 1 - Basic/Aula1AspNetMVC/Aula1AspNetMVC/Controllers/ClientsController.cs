@@ -15,6 +15,11 @@ namespace Aula1AspNetMVC.Controllers
     {
         private Aula1Context db = new Aula1Context();
 
+        public ActionResult Test()
+        {
+            return View();
+        }
+
         // GET: Clients
         public ActionResult Index()
         {
