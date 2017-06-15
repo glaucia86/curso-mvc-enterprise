@@ -1,8 +1,82 @@
-﻿@model IEnumerable<Aula1AspNetMVC.Models.Client>
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<Aula1AspNetMVC.Models.Client>
 
 @{
     ViewBag.Title = "Test";
 }
 
+
 <h2>Test</h2>
 
+
+@{
+    foreach (var client in Model)
+    {
+        <div>@Html.Hidden("Id", client.Id)</div>
+        <div>@Html.Label("txtName", "Name: ", new { text = "Name:", @class = "control-label col-md-2" })</div>
+
+        <div>
+            @Html.TextBox("txtName", client.Name)
+            @Html.TextBoxFor(m => client.Name)
+            @Html.EditorFor(m => client.Name)
+        </div>
+
+        <div>@Html.TextArea("txtName2", new { rows = 5 })</div>
+
+        <div>@Html.ActionLink("Click Here", "Edit", new { client.Id })</div>
+
+        <div>@Html.LabelFor(m => client.Name)</div>
+        <div>@Html.DisplayFor(m => client.Name)</div>
+
+        <div>
+            @Html.RadioButton("favorColor", "Blue", true) Blue
+            @Html.RadioButton("favorColor", "Red", false) Red
+            @Html.RadioButton("favorColor", "Yellow", false) Yellow
+            @Html.RadioButton("favorColor", "Black", false) Black
+        </div>
+
+        <div>
+            @Html.ListBox("colorList",
+                new SelectList(new List<string>()
+                {
+                    "Blue",
+                    "Yellow",
+                    "Red",
+                    "Black"
+                }))
+        </div>
+
+        <div>
+            @Html.DropDownList("drpColorList", new SelectList(new List<string>()
+            {
+                "Blue",
+                "Yellow",
+                "Red",
+                "Black"
+            }))
+        </div>
+
+        <div>@Html.DropDownListFor(m => client.Name, new SelectList(Model, "id", "Name")) </div>
+
+        <div>@Html.DropDownList("Id", String.Empty)</div>
+
+        <div>@Html.CheckBox("Is Cheap", false) Is this Product expensive?</div>
+
+        <div>
+            @{
+                var test = Html.Partial("_Saudacao");
+            }
+        </div>
+
+        <div>
+            @{
+                Html.RenderPartial("_Saudacao");
+            }
+        </div>
+
+        <div>
+            <a href="@Url.Action("Index", "Home")">Click Here</a>
+        </div>
+
+    }
+}
