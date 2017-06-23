@@ -129,4 +129,7 @@
   <data name="Client_Email" xml:space="preserve">
     <value>E-Mail</value>
   </data>
+  <data name="Client_Email_Message_Error" xml:space="preserve">
+    <value>Your email must be '.com' or '.br.</value>
+  </data>
 </root>

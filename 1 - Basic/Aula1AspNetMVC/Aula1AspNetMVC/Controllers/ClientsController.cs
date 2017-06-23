@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Aula1AspNetMVC.Context;
 using Aula1AspNetMVC.Models;
+using Aula1AspNetMVC.Properties;
 
 namespace Aula1AspNetMVC.Controllers
 {
@@ -55,12 +56,21 @@ namespace Aula1AspNetMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Surname,CreatedDate")] Client client)
+        public ActionResult Create(Client client)
         {
             if (ModelState.IsValid)
             {
+                //Validation Email field:
+                if (!client.Email.Contains(".com") && !client.Email.Contains(".br"))
+                {
+                    ModelState.AddModelError(String.Empty, Resources.Client_Email_Message_Error);
+                    return View(client);
+                }
+
+                client.CreatedDate = DateTime.Now;
                 db.Client.Add(client);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 

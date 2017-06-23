@@ -79,6 +79,15 @@ namespace Aula1AspNetMVC.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your email must be &apos;.com&apos; or &apos;.br..
+        /// </summary>
+        public static string Client_Email_Message_Error {
+            get {
+                return ResourceManager.GetString("Client_Email_Message_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Client_Name {

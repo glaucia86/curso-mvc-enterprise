@@ -34,5 +34,6 @@ namespace Aula1AspNetMVC.Models
         [Required(ErrorMessage = "'Email' is a Required Field")]
         [EmailAddress(ErrorMessage = "Invalid E-Mail")]
         public string Email { get; set; }
-    }
+
+    }   
 }
