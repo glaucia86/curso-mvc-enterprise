@@ -25,9 +25,14 @@ namespace Aula1AspNetMVC.Models
         public string Surname { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = "Client_CreatedDate")]
+        [ScaffoldColumn(false)]
         public DateTime CreatedDate { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = "Client_Email")]
+        [MaxLength(150, ErrorMessage = "Exceeds the number of characters!")]
+        [MinLength(2, ErrorMessage = "You need to put at least 2 characters!")]
+        [Required(ErrorMessage = "Required Field")]
+        [EmailAddress(ErrorMessage = "Invalid E-Mail")]
         public string Email { get; set; }
     }
 }
