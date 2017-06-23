@@ -15,13 +15,13 @@ namespace Aula1AspNetMVC.Models
         [Display(ResourceType = typeof(Resources), Name = "Client_Name")]
         [MaxLength(150, ErrorMessage = "Exceeds the number of characters!")]
         [MinLength(2, ErrorMessage = "You need to put at least 2 characters!")]        
-        [Required(ErrorMessage = "Required Field")]
+        [Required(ErrorMessage = "'Name' is a Required Field")]
         public string Name { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = "Client_Surname")]
         [MaxLength(150, ErrorMessage = "Exceeds the number of characters!")]
         [MinLength(2, ErrorMessage = "You need to put at least 2 characters!")]
-        [Required(ErrorMessage = "Required Field")]
+        [Required(ErrorMessage = "'Surname' is a Required Field")]
         public string Surname { get; set; }
 
         [Display(ResourceType = typeof(Resources), Name = "Client_CreatedDate")]
@@ -31,7 +31,7 @@ namespace Aula1AspNetMVC.Models
         [Display(ResourceType = typeof(Resources), Name = "Client_Email")]
         [MaxLength(150, ErrorMessage = "Exceeds the number of characters!")]
         [MinLength(2, ErrorMessage = "You need to put at least 2 characters!")]
-        [Required(ErrorMessage = "Required Field")]
+        [Required(ErrorMessage = "'Email' is a Required Field")]
         [EmailAddress(ErrorMessage = "Invalid E-Mail")]
         public string Email { get; set; }
     }
