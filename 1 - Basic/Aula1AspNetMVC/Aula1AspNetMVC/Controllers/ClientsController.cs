@@ -16,14 +16,6 @@ namespace Aula1AspNetMVC.Controllers
     {
         private Aula1Context db = new Aula1Context();
 
-        public ActionResult Test()
-        {
-            //Maneira mais elegante de fazer um DropDownList
-            ViewBag.Id = new SelectList(db.Client.ToList(), "Id", "Name");
-
-            return View(db.Client.ToList());
-        }
-
         // GET: Clients
         public ActionResult Index()
         {
