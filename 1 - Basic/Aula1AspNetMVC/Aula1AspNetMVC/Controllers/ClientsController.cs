@@ -16,6 +16,12 @@ namespace Aula1AspNetMVC.Controllers
     {
         private Aula1Context db = new Aula1Context();
 
+        [OutputCache(Duration = 30, VaryByParam = "id")]
+        public ContentResult Test1(int id)
+        {
+            return Content(DateTime.Now.ToString());
+        }
+
         public ActionResult Test()
         {
             return Json(db.Client.ToList(), JsonRequestBehavior.AllowGet);
