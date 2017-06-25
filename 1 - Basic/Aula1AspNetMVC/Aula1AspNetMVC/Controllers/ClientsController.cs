@@ -16,7 +16,13 @@ namespace Aula1AspNetMVC.Controllers
     {
         private Aula1Context db = new Aula1Context();
 
+        public ActionResult Test()
+        {
+            return Json(db.Client.ToList(), JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Clients
+        [HttpGet]
         public ActionResult Index()
         {
             return View(db.Client.ToList());
