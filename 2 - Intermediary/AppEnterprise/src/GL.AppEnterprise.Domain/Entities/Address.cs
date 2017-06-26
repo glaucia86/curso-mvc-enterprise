@@ -40,8 +40,14 @@ namespace GL.AppEnterprise.Domain.Entities
         public string State { get; set; }
 
         /// <summary>
-        /// Foreign Key (Relacionamento do Cliente com Endereço)
+        /// Foreign Key (Campo para DB)
+        /// ->> 
         /// </summary>
         public Guid ClientId { get; set; }
+
+        /// <summary>
+        /// Relacionamento entre Cliente -> Endereço
+        /// </summary>
+        public Client Client { get; set; }
     }
 }
