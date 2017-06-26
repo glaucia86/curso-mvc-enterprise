@@ -10,7 +10,7 @@ namespace GL.AppEnterprise.Domain.Entities
 
         public string Email { get; set; }
 
-        public string CPF { get; set; }
+        public string Cpf { get; set; }
 
         public DateTime CreatedDate { get; set; }
 
