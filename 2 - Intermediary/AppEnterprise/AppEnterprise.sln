@@ -17,12 +17,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Data", "5.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - CrossCutting", "5.2 - CrossCutting", "{48FC3D10-6CCB-4102-B84D-43165046464B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GL.AppEnterprise.UI.Mvc", "src\GL.AppEnterprise.UI.Mvc\GL.AppEnterprise.UI.Mvc.csproj", "{87B97CDC-C4FE-4FBA-8D57-AB16AF213BC0}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87B97CDC-C4FE-4FBA-8D57-AB16AF213BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B97CDC-C4FE-4FBA-8D57-AB16AF213BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B97CDC-C4FE-4FBA-8D57-AB16AF213BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B97CDC-C4FE-4FBA-8D57-AB16AF213BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{50592EFC-B1DE-4F27-B457-613705B9E604} = {1DA33DE6-6D60-4A0D-B11F-B7DCCC682EA9}
 		{48FC3D10-6CCB-4102-B84D-43165046464B} = {1DA33DE6-6D60-4A0D-B11F-B7DCCC682EA9}
+		{87B97CDC-C4FE-4FBA-8D57-AB16AF213BC0} = {38D85636-8CC5-465F-8B40-6D417B17EA6A}
 	EndGlobalSection
 EndGlobal
