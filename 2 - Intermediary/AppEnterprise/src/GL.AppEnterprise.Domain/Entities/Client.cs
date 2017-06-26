@@ -5,6 +5,12 @@ namespace GL.AppEnterprise.Domain.Entities
 {
     public class Client
     {
+        public Client()
+        {
+            //Inicializando o Guid para que não venha 'zerado'
+            ClientId = Guid.NewGuid();
+        }
+
         /// <summary>
         /// Id do Cliente
         /// </summary>

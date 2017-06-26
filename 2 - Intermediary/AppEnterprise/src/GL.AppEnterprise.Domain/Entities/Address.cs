@@ -4,6 +4,11 @@ namespace GL.AppEnterprise.Domain.Entities
 {
     public class Address
     {
+        public Address()
+        {
+            //Inicializando o Guid para que não venha 'zerado'
+            AddressId = new Guid();
+        }
         /// <summary>
         /// Id do Endereço
         /// </summary>
