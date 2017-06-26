@@ -49,6 +49,6 @@ namespace GL.AppEnterprise.Domain.Entities
         /// <summary>
         /// Relacionamento de 1 - n (Cliente -> Endereço)
         /// </summary>
-        public ICollection<Address> Addresses { get; set; }
+        public virtual ICollection<Address> Addresses { get; set; }
     }
 }

@@ -7,8 +7,9 @@ namespace GL.AppEnterprise.Domain.Entities
         public Address()
         {
             //Inicializando o Guid para que não venha 'zerado'
-            AddressId = new Guid();
+            AddressId = Guid.NewGuid();
         }
+
         /// <summary>
         /// Id do Endereço
         /// </summary>
@@ -53,6 +54,6 @@ namespace GL.AppEnterprise.Domain.Entities
         /// <summary>
         /// Relacionamento entre Cliente -> Endereço
         /// </summary>
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
     }
 }
