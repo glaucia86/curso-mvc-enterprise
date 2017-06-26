@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GL.AppEnterprise.Domain.Entities
 {
@@ -38,5 +39,10 @@ namespace GL.AppEnterprise.Domain.Entities
         /// Saber se o Cliente está ativo ou não - Ativo
         /// </summary>
         public bool Active { get; set; }
+
+        /// <summary>
+        /// Relacionamento de 1 - n (Cliente -> Endereço)
+        /// </summary>
+        public ICollection<Address> Addresses { get; set; }
     }
 }
