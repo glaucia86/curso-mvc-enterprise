@@ -46,6 +46,9 @@ namespace GL.AppEnterprise.Infra.Data.Context
             //Adicionando as configurações dos dados da classe 'Client' no arquivo: 'ClientConfig.cs'
             modelBuilder.Configurations.Add(new ClientConfig());
 
+            //Adicionando as configurações dos dados da classe 'Address' no arquivo: 'AddressConfig.cs'
+            modelBuilder.Configurations.Add(new AddressConfig());
+
             base.OnModelCreating(modelBuilder);
         }
     }
