@@ -41,6 +41,8 @@ namespace GL.AppEnterprise.Infra.Data.EntityConfig
             HasRequired(a => a.Client)
                 .WithMany(c => c.Addresses)
                 .HasForeignKey(a => a.ClientId);
+
+            ToTable("Addresses");
         }
     }
 }
