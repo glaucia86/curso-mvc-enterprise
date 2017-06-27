@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using GL.AppEnterprise.Domain.Entities;
+using GL.AppEnterprise.Infra.Data.EntityConfig;
 
 namespace GL.AppEnterprise.Infra.Data.Context
 {
@@ -42,7 +43,8 @@ namespace GL.AppEnterprise.Infra.Data.Context
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
 
-
+            //Adicionando as configurações dos dados da classe 'Client' no arquivo: 'ClientConfig.cs'
+            modelBuilder.Configurations.Add(new ClientConfig());
 
             base.OnModelCreating(modelBuilder);
         }

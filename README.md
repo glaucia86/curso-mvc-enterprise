@@ -7,6 +7,7 @@ Códigos desenvolvidos durante o Curso de ASP.NET MVC 5 – Enterprise Applicati
 - Visual Studio 2015/2017;
 - Asp.NET MVC 5;
 - Entity Framework 6;
+- FluentAPI;
 - DDD (Domain Driven Design);
 - Bootstrap Framework;
 
