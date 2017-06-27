@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using GL.AppEnterprise.Domain.Entities;
 
 namespace GL.AppEnterprise.Infra.Data.Context
 {
@@ -7,7 +8,11 @@ namespace GL.AppEnterprise.Infra.Data.Context
         public AppEnterpriseContext()
             : base("DefaultConnection")
         {
-            
+
         }
+
+        public DbSet<Client> Clients { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
     }
 }
