@@ -61,15 +61,6 @@ namespace GL.AppEnterprise.Domain.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active.
-        /// </summary>
-        public static string Client_Active {
-            get {
-                return ResourceManager.GetString("Client_Active", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Birth Date.
         /// </summary>
         public static string Client_BirthDate {
@@ -84,15 +75,6 @@ namespace GL.AppEnterprise.Domain.Properties {
         public static string Client_CPF {
             get {
                 return ResourceManager.GetString("Client_CPF", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Created Date.
-        /// </summary>
-        public static string Client_CreatedDate {
-            get {
-                return ResourceManager.GetString("Client_CreatedDate", resourceCulture);
             }
         }
         

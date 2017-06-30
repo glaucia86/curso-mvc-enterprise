@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using GL.AppEnterprise.Domain.Entities;
 using GL.AppEnterprise.Domain.Properties;
 
 namespace GL.AppEnterprise.Application.ViewModel
@@ -46,5 +48,7 @@ namespace GL.AppEnterprise.Application.ViewModel
         [ScaffoldColumn(false)]
         [Display(ResourceType = typeof(Resources), Name = "Client_Active")]
         public bool Active { get; set; }
+
+        //public ICollection<AddressViewModel> Addresses { get; set; }
     }
 }

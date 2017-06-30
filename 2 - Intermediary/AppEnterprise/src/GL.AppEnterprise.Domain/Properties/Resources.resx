@@ -129,10 +129,4 @@
   <data name="Client_BirthDate" xml:space="preserve">
     <value>Birth Date</value>
   </data>
-  <data name="Client_CreatedDate" xml:space="preserve">
-    <value>Created Date</value>
-  </data>
-  <data name="Client_Active" xml:space="preserve">
-    <value>Active</value>
-  </data>
 </root>
