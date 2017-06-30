@@ -21,7 +21,7 @@ namespace GL.AppEnterprise.Infra.Data.Repositories
             DbSet = Db.Set<TEntity>(); //aqui estamos criando um atalho para deixar o código mais clean na hora da implementação
         }
 
-        public TEntity Add(TEntity obj)
+        public virtual TEntity Add(TEntity obj)
         {
             var returnObj = DbSet.Add(obj);
             SaveChanges();
@@ -29,33 +29,22 @@ namespace GL.AppEnterprise.Infra.Data.Repositories
             return returnObj;
         }
 
-        public void Delete(Guid id)
+        public virtual void Delete(Guid id)
         {
             //Primeiro fazemos uma busca pelo id e depois removeremos.
             DbSet.Remove(DbSet.Find(id));
             SaveChanges();
         }
 
-        public void Dispose()
-        {
-            Db.Dispose();
-            GC.SuppressFinalize(this); //GC = Garbage Collector irá remover o lixo da app
-        }
-
-        public IEnumerable<TEntity> GetAll() //int t, int s (parâmetros para trabalhar com paginação em memória)
+        public virtual IEnumerable<TEntity> GetAll() //int t, int s (parâmetros para trabalhar com paginação em memória)
         {
             //return DbSet.Take(t).Skip(s).ToList(); //aqui um exemplo de paginação em memória
             return DbSet.ToList();
         }
 
-        public TEntity GetById(Guid id)
+        public virtual TEntity GetById(Guid id)
         {
             return DbSet.Find(id);
-        }
-
-        public int SaveChanges()
-        {
-            return Db.SaveChanges();
         }
 
         public IEnumerable<TEntity> Search(Expression<Func<TEntity, bool>> predicate)
@@ -63,14 +52,25 @@ namespace GL.AppEnterprise.Infra.Data.Repositories
             return DbSet.Where(predicate);
         }
 
-        public TEntity Update(TEntity obj)
+        public virtual TEntity Update(TEntity obj)
         {
             var entry = Db.Entry(obj); //aqui estamos recebendo os dados alterados pelo usuário
             DbSet.Attach(obj); //aqui estamos recebendo os dados já inseridos no DB
             entry.State = EntityState.Modified; //aqui iremos modificar somente os campos que foi alterado
             SaveChanges(); //realizará a atualização
-             
+
             return obj;
+        }
+
+        public int SaveChanges()
+        {
+            return Db.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
+            GC.SuppressFinalize(this); //GC = Garbage Collector irá remover o lixo da app
         }
     }
 }
