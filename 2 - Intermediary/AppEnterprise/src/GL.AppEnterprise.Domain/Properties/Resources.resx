@@ -129,4 +129,22 @@
   <data name="Client_BirthDate" xml:space="preserve">
     <value>Birth Date</value>
   </data>
+  <data name="Address_PublicPlace" xml:space="preserve">
+    <value>Public Place</value>
+  </data>
+  <data name="Address_Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Address_Complement" xml:space="preserve">
+    <value>Complement</value>
+  </data>
+  <data name="Address_CEP" xml:space="preserve">
+    <value>CEP</value>
+  </data>
+  <data name="Address_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Address_City" xml:space="preserve">
+    <value>City</value>
+  </data>
 </root>

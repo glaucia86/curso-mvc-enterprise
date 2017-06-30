@@ -12,7 +12,7 @@ namespace GL.AppEnterprise.Application.ViewModel
         public ClientViewModel()
         {
             ClientId = Guid.NewGuid();
-            //Addresses = new List<AddressViewModel>();
+            Addresses = new List<AddressViewModel>();
         }
 
         [Key]
@@ -42,13 +42,11 @@ namespace GL.AppEnterprise.Application.ViewModel
         public DateTime BirthDate { get; set; }
 
         [ScaffoldColumn(false)]
-        [Display(ResourceType = typeof(Resources), Name = "Client_CreatedDate")]
         public DateTime CreatedDate { get; set; }
 
         [ScaffoldColumn(false)]
-        [Display(ResourceType = typeof(Resources), Name = "Client_Active")]
         public bool Active { get; set; }
 
-        //public ICollection<AddressViewModel> Addresses { get; set; }
+        public ICollection<AddressViewModel> Addresses { get; set; }
     }
 }

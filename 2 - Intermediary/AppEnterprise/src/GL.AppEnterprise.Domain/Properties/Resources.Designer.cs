@@ -61,6 +61,60 @@ namespace GL.AppEnterprise.Domain.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CEP.
+        /// </summary>
+        public static string Address_CEP {
+            get {
+                return ResourceManager.GetString("Address_CEP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string Address_City {
+            get {
+                return ResourceManager.GetString("Address_City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complement.
+        /// </summary>
+        public static string Address_Complement {
+            get {
+                return ResourceManager.GetString("Address_Complement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number.
+        /// </summary>
+        public static string Address_Number {
+            get {
+                return ResourceManager.GetString("Address_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public Place.
+        /// </summary>
+        public static string Address_PublicPlace {
+            get {
+                return ResourceManager.GetString("Address_PublicPlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to State.
+        /// </summary>
+        public static string Address_State {
+            get {
+                return ResourceManager.GetString("Address_State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Birth Date.
         /// </summary>
         public static string Client_BirthDate {
