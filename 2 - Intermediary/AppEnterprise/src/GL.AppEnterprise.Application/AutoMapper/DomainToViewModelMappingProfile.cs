@@ -1,6 +1,8 @@
-﻿namespace GL.AppEnterprise.Application.AutoMapper
+﻿using AutoMapper;
+
+namespace GL.AppEnterprise.Application.AutoMapper
 {
-    public class DomainToViewModelMappingProfile
+    public class DomainToViewModelMappingProfile : Profile
     {
         
     }
