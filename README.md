@@ -9,6 +9,7 @@ Códigos desenvolvidos durante o Curso de ASP.NET MVC 5 – Enterprise Applicati
 - Entity Framework 6;
 - FluentAPI;
 - DDD (Domain Driven Design);
+- AutoMapper ~ 6.1.1
 - ModelView Pattern;
 - Bootstrap Framework;
 
