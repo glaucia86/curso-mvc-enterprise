@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using GL.AppEnterprise.Domain.Entities;
 using GL.AppEnterprise.Domain.Properties;
 
 namespace GL.AppEnterprise.Application.ViewModel

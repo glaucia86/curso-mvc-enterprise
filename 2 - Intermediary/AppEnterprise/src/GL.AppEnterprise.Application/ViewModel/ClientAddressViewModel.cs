@@ -14,7 +14,7 @@ namespace GL.AppEnterprise.Application.ViewModel
             AddressId = Guid.NewGuid();
         }
 
-        #region "ClientViewModel Information"
+        #region " ClientViewModel Information "
 
         [Key]
         public Guid ClientId { get; set; }
@@ -53,7 +53,7 @@ namespace GL.AppEnterprise.Application.ViewModel
 
         #endregion
 
-        #region "AddressViewModel Information"
+        #region " AddressViewModel Information "
 
         [Key]
         public Guid AddressId { get; set; }
