@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoMapper;
 using GL.AppEnterprise.Application.Interfaces;
 using GL.AppEnterprise.Application.ViewModel;
+using GL.AppEnterprise.Domain.Entities;
 using GL.AppEnterprise.Infra.Data.Repositories;
 
 namespace GL.AppEnterprise.Application
@@ -17,42 +19,57 @@ namespace GL.AppEnterprise.Application
         
         public ClientAddressViewModel Add(ClientAddressViewModel clientAddressViewModel)
         {
-            throw new NotImplementedException();
+            // Primeiro: Precisamos mapear os dados de Client e Address de Client
+            var client = Mapper.Map<ClientAddressViewModel, Client>(clientAddressViewModel);
+            
+            // Segundo: Realizar o mapeamento de Endereço também
+            var address = Mapper.Map<ClientAddressViewModel, Address>(clientAddressViewModel);
+
+            // Terceiro: Adicionar os dados de Endereço pelo cliente
+            client.Addresses.Add(address);
+
+            // Quarto: Adicionar os dados mapeados
+            _clientRepository.Add(client);
+
+            // Quinto: Retornar os valores
+            return clientAddressViewModel;
         }
 
         public ClientViewModel GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<Client, ClientViewModel>(_clientRepository.GetById(id));
         }
 
         public ClientViewModel GetByCpf(string cpf)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<Client, ClientViewModel>(_clientRepository.GetByCpf(cpf));
         }
 
         public ClientViewModel GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<Client, ClientViewModel>(_clientRepository.GetByEmail(email));
         }
 
         public IEnumerable<ClientViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            return Mapper.Map<IEnumerable<Client>, IEnumerable<ClientViewModel>>(_clientRepository.GetAll());
         }
 
         public ClientViewModel Update(ClientViewModel clientViewModel)
         {
-            throw new NotImplementedException();
+            _clientRepository.Update(Mapper.Map<ClientViewModel, Client>(clientViewModel));
+            return clientViewModel;
         }
 
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            _clientRepository.Delete(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _clientRepository.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
