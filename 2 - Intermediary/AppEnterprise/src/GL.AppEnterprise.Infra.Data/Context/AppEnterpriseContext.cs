@@ -1,5 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 using GL.AppEnterprise.Domain.Entities;
 using GL.AppEnterprise.Infra.Data.EntityConfig;
 
@@ -50,6 +52,24 @@ namespace GL.AppEnterprise.Infra.Data.Context
             modelBuilder.Configurations.Add(new AddressConfig());
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("CreatedDate") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("CreatedDate").CurrentValue = DateTime.Now;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("CreatedDate").IsModified = false;
+                }
+            }
+
+            return base.SaveChanges();
         }
     }
 }
