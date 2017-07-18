@@ -9,6 +9,7 @@ namespace GL.AppEnterprise.Domain.Entities
         {
             //Inicializando o Guid para que não venha 'zerado'
             ClientId = Guid.NewGuid();
+            Addresses = new List<Address>();
         }
 
         /// <summary>
