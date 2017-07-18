@@ -29,7 +29,5 @@ namespace GL.AppEnterprise.UI.Mvc.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<GL.AppEnterprise.Application.ViewModel.ClientViewModel> ClientViewModels { get; set; }
     }
 }

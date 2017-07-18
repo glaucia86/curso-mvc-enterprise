@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using GL.AppEnterprise.Application;
 using GL.AppEnterprise.Application.ViewModel;
-using GL.AppEnterprise.UI.Mvc.Models;
 
 namespace GL.AppEnterprise.UI.Mvc.Controllers
 {
     public class ClientsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ClientAppService _clientAppService;
+
+        public ClientsController()
+        {
+            _clientAppService = new ClientAppService();
+        }
 
         // GET: Clients
         public ActionResult Index()
         {
-            return View(db.ClientViewModels.ToList());
+            return View(_clientAppService.GetAll());
         }
 
         // GET: Clients/Details/5
@@ -28,11 +28,13 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClientViewModel clientViewModel = db.ClientViewModels.Find(id);
+
+            var clientViewModel = _clientAppService.GetById(id.Value);
             if (clientViewModel == null)
             {
                 return HttpNotFound();
             }
+
             return View(clientViewModel);
         }
 
@@ -47,17 +49,15 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClientId,Name,Email,Cpf,BirthDate,CreatedDate,Active")] ClientViewModel clientViewModel)
+        public ActionResult Create(ClientAddressViewModel clientAddressViewModel)
         {
             if (ModelState.IsValid)
             {
-                clientViewModel.ClientId = Guid.NewGuid();
-                db.ClientViewModels.Add(clientViewModel);
-                db.SaveChanges();
+                _clientAppService.Add(clientAddressViewModel);
                 return RedirectToAction("Index");
             }
 
-            return View(clientViewModel);
+            return View(clientAddressViewModel);
         }
 
         // GET: Clients/Edit/5
@@ -67,7 +67,8 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClientViewModel clientViewModel = db.ClientViewModels.Find(id);
+
+            var clientViewModel = _clientAppService.GetById(id.Value);
             if (clientViewModel == null)
             {
                 return HttpNotFound();
@@ -80,14 +81,14 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClientId,Name,Email,Cpf,BirthDate,CreatedDate,Active")] ClientViewModel clientViewModel)
+        public ActionResult Edit(ClientViewModel clientViewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(clientViewModel).State = EntityState.Modified;
-                db.SaveChanges();
+                _clientAppService.Update(clientViewModel);
                 return RedirectToAction("Index");
             }
+
             return View(clientViewModel);
         }
 
@@ -98,11 +99,14 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ClientViewModel clientViewModel = db.ClientViewModels.Find(id);
+
+            var clientViewModel = _clientAppService.GetById(id.Value);
+
             if (clientViewModel == null)
             {
                 return HttpNotFound();
             }
+
             return View(clientViewModel);
         }
 
@@ -111,9 +115,7 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            ClientViewModel clientViewModel = db.ClientViewModels.Find(id);
-            db.ClientViewModels.Remove(clientViewModel);
-            db.SaveChanges();
+            _clientAppService.Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -121,8 +123,9 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _clientAppService.Dispose();
             }
+
             base.Dispose(disposing);
         }
     }
