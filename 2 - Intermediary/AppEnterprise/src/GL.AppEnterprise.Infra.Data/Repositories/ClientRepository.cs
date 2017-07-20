@@ -38,5 +38,24 @@ namespace GL.AppEnterprise.Infra.Data.Repositories
 
             return conn.Query<Client>(cmd);
         }
+
+        public override Client GetById(Guid id)
+        {
+            var conn = Db.Database.Connection;
+
+            var cmd = @"SELECT * FROM Clients c " +
+                      "LEFT JOIN Addresses a " +
+                      "ON c.ClientId = a.ClientId " +
+                      "WHERE c.ClientId = @sid";
+
+            var client = conn.Query<Client, Address, Client>(cmd,
+                (c, a) =>
+                {
+                    c.Addresses.Add(a);
+                    return c;
+                }, new { sid = id }, splitOn: "ClientId, AddressId");
+
+            return client.FirstOrDefault();
+        }
     }
 }
