@@ -1,5 +1,5 @@
-using System.Data.Entity.Migrations;
 using GL.AppEnterprise.Infra.Data.Context;
+using System.Data.Entity.Migrations;
 
 namespace GL.AppEnterprise.Infra.Data.Migrations
 {

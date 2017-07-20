@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Dapper;
 using GL.AppEnterprise.Domain.Entities;
 using GL.AppEnterprise.Domain.Interfaces;
 
@@ -26,6 +28,15 @@ namespace GL.AppEnterprise.Infra.Data.Repositories
             var client = GetById(id); //primeiro busco o cliente que quero alterar
             client.Active = false; //altero o status dele para 'false'
             Update(client); //atualizo no banco de dados
+        }
+
+        public override IEnumerable<Client> GetAll()
+        {
+            var conn = Db.Database.Connection;
+
+            var cmd = @"select * from clients";
+
+            return conn.Query<Client>(cmd);
         }
     }
 }
