@@ -1,16 +1,20 @@
-using GL.AppEnterprise.Infra.Data.Context;
+using System;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Linq;
 
 namespace GL.AppEnterprise.Infra.Data.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<AppEnterpriseContext>
+    
+
+    internal sealed class Configuration : DbMigrationsConfiguration<Context.AppEnterpriseContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(AppEnterpriseContext context)
+        protected override void Seed(GL.AppEnterprise.Infra.Data.Context.AppEnterpriseContext context)
         {
             //  This method will be called after migrating to the latest version.
 
