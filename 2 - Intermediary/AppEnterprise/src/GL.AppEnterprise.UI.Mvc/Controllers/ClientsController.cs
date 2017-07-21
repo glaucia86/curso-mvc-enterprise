@@ -6,6 +6,7 @@ using GL.AppEnterprise.Application.ViewModel;
 
 namespace GL.AppEnterprise.UI.Mvc.Controllers
 {
+    [RoutePrefix("management")]
     public class ClientsController : Controller
     {
         private readonly ClientAppService _clientAppService;
@@ -15,13 +16,19 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             _clientAppService = new ClientAppService();
         }
 
-        // GET: Clients
+        #region " GET - Clients "
+
+        [Route("list-clients")]
         public ActionResult Index()
         {
             return View(_clientAppService.GetAll());
         }
 
-        // GET: Clients/Details/5
+        #endregion
+
+        #region " DETAILS - Clients "
+
+        [Route("{id:guid}/view-client")]
         public ActionResult Details(Guid? id)
         {
             if (id == null)
@@ -38,15 +45,17 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             return View(clientViewModel);
         }
 
-        // GET: Clients/Create
+        #endregion
+
+        #region " CREATE - Client "
+
+        [Route("new-client")]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Clients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("new-client")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ClientAddressViewModel clientAddressViewModel)
@@ -60,7 +69,11 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             return View(clientAddressViewModel);
         }
 
-        // GET: Clients/Edit/5
+        #endregion
+
+        #region " EDIT - Client "
+
+        [Route("{id:guid}/update-client")]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -76,9 +89,7 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             return View(clientViewModel);
         }
 
-        // POST: Clients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("{id:guid}/update-client")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ClientViewModel clientViewModel)
@@ -92,7 +103,11 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             return View(clientViewModel);
         }
 
-        // GET: Clients/Delete/5
+        #endregion
+
+        #region " DELETE - Client "
+
+        [Route("{id:guid}/delete-client")]
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -110,7 +125,7 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             return View(clientViewModel);
         }
 
-        // POST: Clients/Delete/5
+        [Route("{id:guid}/delete-client")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
@@ -118,6 +133,8 @@ namespace GL.AppEnterprise.UI.Mvc.Controllers
             _clientAppService.Delete(id);
             return RedirectToAction("Index");
         }
+
+        #endregion
 
         protected override void Dispose(bool disposing)
         {

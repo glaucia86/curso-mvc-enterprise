@@ -287,6 +287,10 @@
       <Project>{374a2990-d87b-42cc-b9b3-b044f3f19eb3}</Project>
       <Name>GL.AppEnterprise.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GL.AppEnterprise.Infra.CrossCutting.Filters\GL.AppEnterprise.Infra.CrossCutting.Filters.csproj">
+      <Project>{2b05aac9-2315-472d-8215-857b112212b4}</Project>
+      <Name>GL.AppEnterprise.Infra.CrossCutting.Filters</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
